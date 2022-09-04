@@ -1,0 +1,30 @@
+Write a program to reverse a given integer number
+=>The remainder of the number can be fetched and the number can be divided by 10 to remove the the digit in loop till number becomes 0
+=>A simple approach to reverse a number could also be to convert it in to a string and then reverse it
+
+
+
+
+
+const num = 3849;
+
+function reverseGivenInteger(num) {
+    // write your solution here
+    //method -1
+
+// var str=num.toString()
+// var ans= parseInt(str.split("").reverse().join(""))
+//     return ans
+
+
+//Method-2
+
+    var ans=""
+    while(num>0){
+        ans+=num%10
+        num=Math.floor(num/10)
+    }
+    return parseInt(ans)
+}
+
+console.log(`Reversed integer is: ${reverseGivenInteger(num)}`)
