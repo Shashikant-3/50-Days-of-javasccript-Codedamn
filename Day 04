@@ -1,0 +1,29 @@
+Write a function which can convert the time input given in 12 hours format to 24 hours format
+The check for 'AM' and 'PM' can be verified using endsWith String method
+An extra 0 would be needed if the hours have single digit
+
+
+convertTo24HrsFormat("12:10AM") returns "00:10"
+convertTo24HrsFormat("5:00AM") returns "05:00"
+convertTo24HrsFormat("12:33PM") returns "12:33"
+convertTo24HrsFormat("01:59PM") returns "13:59"
+convertTo24HrsFormat("11:8PM") returns "23:08"
+convertTo24HrsFormat("10:02PM") returns "22:02"
+
+
+const time = '12:10AM';
+
+function convertTo24HrsFormat(time) {
+    // write your solution here
+   let [hours, minute_]= time.split(":")
+   if(minute_.endsWith("AM")){
+       hours=hours==12?"0":hours
+   }
+   else if(minute_.endsWith("PM")){
+       hours= hours==12?hours:String(+hours+12) //String addition-> can't use eval as it change the type to number
+   }
+var ans= hours.padStart(2,0) + ":" + minute_.slice(0,-2).padStart(2,0)  // padStart-> make digit of given length(here-2) by adding given sign(here-0) at the start
+    return ans
+}
+
+console.log(`Converted time: ${convertTo24HrsFormat(time)}`)
