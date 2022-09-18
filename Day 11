@@ -1,0 +1,28 @@
+Return the N-th value of the Fibonacci sequence
+
+1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ……..
+
+
+function fibonacci(n) {
+	// write your solution here
+    //Recurson
+//  if(n==1) return 1
+//    if(n==2) return 1
+   
+// 	return (fibonacci(n-1)+fibonacci(n-2))
+
+//Normal
+let a=0;
+let b=1;
+let c=0;
+
+for(let i=1;i<n;i++){
+    c=a+b;
+    a=b;
+    b=c;
+}
+return n?b:a;
+
+}
+
+console.log(`fibonacci value at position 5: ${fibonacci(5)}`)
